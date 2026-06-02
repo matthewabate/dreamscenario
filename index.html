@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dream Scenario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Quicksand', system-ui, sans-serif;
+      color: #52504E;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url('ds-crowd.jpg') center / cover no-repeat;
+    }
+
+    /* ── SHARED TYPOGRAPHY ────────────────────────── */
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .brand-name {
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .tagline {
+      font-weight: 600;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #807D7A;
+      margin-top: 5px;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #C5C1BC;
+      margin-bottom: 20px;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact a {
+      color: #67B261;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+
+    .contact .follow {
+      color: #52504E;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact .follow a {
+      color: #67B261;
+      font-weight: 600;
+    }
+
+    .copyright {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #807D7A;
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════════
+       DESKTOP (≥768px)
+       White panel fixed to the left; image fills right.
+       Footer copyright lives inside the panel.
+    ══════════════════════════════════════════════ */
+    @media (min-width: 768px) {
+      .site-wrapper {
+        flex: 1;
+      }
+
+      .panel {
+        position: fixed;
+        top: 0; left: 0; bottom: 0;
+        width: 370px;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        padding: 40px 40px 20px;
+        z-index: 10;
+      }
+
+      .panel-body { margin-top: auto; }
+      .panel-footer { margin-top: 40px; }
+
+      footer { display: none; }
+    }
+
+    /* ══════════════════════════════════════════════
+       MOBILE (<768px)
+       Card floats over the full-bleed image.
+       site-wrapper grows to fill space above footer.
+       Footer is a solid white bar pinned to bottom.
+    ══════════════════════════════════════════════ */
+    @media (max-width: 767px) {
+      .site-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 20px 0;
+      }
+
+      .panel {
+        width: 100%;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .panel-body { margin-top: 40px; }
+      .panel-footer { display: none; }
+
+      .brand-name { font-size: 1.75rem; }
+
+      footer {
+        background: #ffffff;
+        padding: 20px;
+        flex-shrink: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-wrapper">
+    <div class="panel">
+      <div class="panel-header">
+        <svg class="logo" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D6ECDE" d="M55,105c-18.5,0-34.6-10.1-43.3-25C7.4,87.4,5,95.9,5,105c0,27.6,22.4,50,50,50c9.1,0,17.6-2.4,25-6.7C65.1,139.6,55,123.5,55,105z"/>
+          <path fill="#EFEDB4" d="M55,55c0-18.5,10.1-34.6,25-43.3C72.6,7.4,64.1,5,55,5C27.4,5,5,27.4,5,55c0,9.1,2.4,17.6,6.7,25C20.4,65.1,36.5,55,55,55z"/>
+          <path fill="#D0E4A1" d="M55,105c0-9.1,2.4-17.6,6.7-25C57.4,72.6,55,64.1,55,55c-18.5,0-34.6,10.1-43.3,25C20.4,94.9,36.5,105,55,105z"/>
+          <path fill="#86D1D3" d="M105,105c0,18.5-10.1,34.6-25,43.3c7.4,4.3,15.9,6.7,25,6.7h50v-50c0-9.1-2.4-17.6-6.7-25C139.6,94.9,123.5,105,105,105z"/>
+          <path fill="#86BFB5" d="M105,105c-9.1,0-17.6-2.4-25-6.7c-7.4,4.3-15.9,6.7-25,6.7c0,18.5,10.1,34.6,25,43.3C94.9,139.6,105,123.5,105,105z"/>
+          <path fill="#7DB28A" d="M61.7,80c-4.3,7.4-6.7,15.9-6.7,25c9.1,0,17.6-2.4,25-6.7C72.4,93.9,66.1,87.6,61.7,80z"/>
+          <path fill="#CDDF76" d="M105,55c18.5,0,34.6,10.1,43.3,25c4.3-7.4,6.7-15.9,6.7-25c0-27.6-22.4-50-50-50c-9.1,0-17.6,2.4-25,6.7C94.9,20.4,105,36.5,105,55z"/>
+          <path fill="#B9D541" d="M55,55c9.1,0,17.6,2.4,25,6.7c7.4-4.3,15.9-6.7,25-6.7c0-18.5-10.1-34.6-25-43.3C65.1,20.4,55,36.5,55,55z"/>
+          <path fill="#90BF4A" d="M80,61.7C72.6,57.4,64.1,55,55,55c0,9.1,2.4,17.6,6.7,25C66.1,72.4,72.4,66.1,80,61.7z"/>
+          <path fill="#88C985" d="M105,55c0,9.1-2.4,17.6-6.7,25c4.3,7.4,6.7,15.9,6.7,25c18.5,0,34.6-10.1,43.3-25C139.6,65.1,123.5,55,105,55z"/>
+          <path fill="#73BF91" d="M80,98.3c7.4,4.3,15.9,6.7,25,6.7c0-9.1-2.4-17.6-6.7-25C93.9,87.6,87.6,93.9,80,98.3z"/>
+          <path fill="#67B261" d="M98.3,80c4.3-7.4,6.7-15.9,6.7-25c-9.1,0-17.6,2.4-25,6.7C87.6,66.1,93.9,72.4,98.3,80z"/>
+          <path fill="#698C72" d="M98.3,80C93.9,72.4,87.6,66.1,80,61.7C72.4,66.1,66.1,72.4,61.7,80c4.4,7.6,10.7,13.9,18.3,18.3C87.6,93.9,93.9,87.6,98.3,80z"/>
+        </svg>
+        <h1 class="brand-name">Dream Scenario</h1>
+        <p class="tagline">Human-centered.&nbsp; Outcome-focused.</p>
+      </div>
+
+      <div class="panel-body">
+        <p class="description">Dream Scenario is an experience strategy and service design consultancy in the NYC Metro area.</p>
+        <hr class="divider" />
+        <div class="contact">
+          <a href="mailto:hello@dreamscenario.studio">hello@dreamscenario.studio</a>
+          <span class="follow">Follow us on <a href="https://www.linkedin.com/company/dreamscenario/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <p class="copyright">© 2026 • Dream Scenario LLC</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="copyright">© 2026 • Dream Scenario LLC</p>
+  </footer>
+
+</body>
+</html>
