@@ -157,9 +157,9 @@ nav a[href="contact.html"]:not(.active):hover { text-decoration: underline; text
 /* ─── MAIN / CONTENT — hugs vertically, fills horizontally, auto-centered ─── */
 main {
   flex: 0 0 auto;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto;
   width: 100%;
+  max-width: 60%;
   padding: 15px;
 }
 
