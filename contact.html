@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Dream Scenario</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/ds-fav.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root { --accent: var(--olive); }
+
+    /* Same flex pattern as Practice — two divs + vertical rule, items centered */
+    main {
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-left {
+      flex: 1;
+      min-width: 0;
+      padding-right: 30px;
+    }
+
+    .v-rule {
+      flex-shrink: 0;
+      width: 1px;
+      align-self: stretch;
+      background: var(--muted);
+    }
+
+    .contact-right {
+      flex: 1;
+      min-width: 0;
+      padding-left: 30px;
+    }
+
+    .contact-heading {
+      font-family: 'Abril Fatface', serif;
+      font-size: 56px;
+      line-height: 60px;
+      color: var(--olive);
+      text-align: right;
+      overflow-wrap: break-word;
+    }
+
+    .contact-right p {
+      font-size: 21px;
+      line-height: 27px;
+      color: var(--text);
+    }
+
+    .contact-right p + p { margin-top: 21px; }
+
+    .contact-right a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .contact-right a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      main { flex-direction: column; align-items: flex-start; }
+      .contact-left { width: 100%; padding-right: 0; padding-bottom: 30px; }
+      .contact-heading { font-size: clamp(30px, 8vw, 56px); line-height: clamp(36px, 9.6vw, 60px); margin-top: 30px; text-align: left; }
+      .v-rule { width: 100%; height: 1px; align-self: auto; margin-bottom: 30px; }
+      .contact-right { width: 100%; padding-left: 0; }
+      .contact-right p { font-size: 18px; line-height: 21px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-lockup">
+      <img src="images/ds-logo.svg" alt="Dream Scenario" />
+      <span class="wordmark"><span class="wd">Dream</span><span class="ws">Scenario</span></span>
+    </a>
+    <nav>
+      <a href="practice.html">Practice</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <div class="contact-left">
+      <h1 class="contact-heading">We can't wait to <br>hear from you.</h1>
+    </div>
+    <div class="v-rule"></div>
+    <div class="contact-right">
+      <p><a href="mailto:hello@dreamscenario.studio">hello@dreamscenario.studio</a></p>
+      <p>Follow us on <a href="https://www.linkedin.com/company/dreamscenario/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </main>
+
+  <footer>© 2026 • Dream Scenario LLC</footer>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-top">
+      <a href="index.html"><img src="images/ds-logo.svg" alt="Dream Scenario" /></a>
+      <button class="close-btn" id="closeBtn" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="nav-overlay-links">
+      <a href="practice.html">Practice</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+
+  <script src="nav.js"></script>
+
+</body>
+</html>

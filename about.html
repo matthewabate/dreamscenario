@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Dream Scenario</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/ds-fav.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root { --accent: var(--gold); }
+
+    .about-heading {
+      font-family: 'Abril Fatface', serif;
+      font-size: 56px;
+      line-height: 60px;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .h-rule { margin-bottom: 45px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .about-body p {
+      font-size: 21px;
+      line-height: 27px;
+      color: var(--text);
+    }
+
+    .about-body p + p { margin-top: 21px; }
+
+    .we-made {
+      font-family: 'Abril Fatface', serif;
+      font-size: 18px;
+      line-height: 21px;
+      font-weight: 400;
+      font-style: normal;
+      font-synthesis: none;
+      color: var(--gold);
+      margin-bottom: 21px;
+    }
+
+    .we-made-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 30px;
+    }
+
+    .we-made-lists ul {
+      list-style: disc;
+      padding-left: 1em;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 21px;
+      color: var(--text);
+    }
+
+    .we-made-lists ul li + li { margin-top: 12px; }
+
+    /* ── CLIENT LOGOS ── */
+    .client-logos {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .client-logos img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .about-heading { font-size: clamp(30px, 8vw, 56px); line-height: clamp(36px, 9.6vw, 60px); margin-top: 30px; text-align: left; }
+      .about-body p { font-size: 18px; line-height: 21px; }
+      .we-made { font-size: 15px; line-height: 21px; }
+      .we-made-lists ul { font-size: 12px; line-height: 18px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .we-made-lists { grid-template-columns: 1fr; }
+      .we-made-lists ul + ul { margin-top: 15px; }
+      .client-logos { justify-content: center; gap: 21px; }
+      .client-logos img { height: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-lockup">
+      <img src="images/ds-logo.svg" alt="Dream Scenario" />
+      <span class="wordmark"><span class="wd">Dream</span><span class="ws">Scenario</span></span>
+    </a>
+    <nav>
+      <a href="practice.html">Practice</a>
+      <a href="services.html">Services</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <h1 class="about-heading">We think like an agency and <br>work like your team.</h1>
+    <hr class="h-rule" />
+
+    <div class="about-grid">
+
+      <div class="about-body">
+        <p>Having cut our teeth at top-tier agencies, startups, and in-house teams for over 25 years, our leaders excel at solving complex, ambiguous business challenges across regulated and mission-driven sectors.</p>
+        <p>With this deep expertise and sweat equity comes an exceptional network of vetted, cross-disciplinary experts who support our core team, allowing us to bring the exact specialists needed for each engagement.</p>
+      </div>
+
+      <div class="about-right">
+        <div class="we-made">We've made&hellip;</div>
+        <div class="we-made-lists">
+          <ul>
+            <li>Automotive Ownership Lifecycle Strategies</li>
+            <li>Venue &amp; Stadium Commerce Experiences</li>
+            <li>Medical Device Inventory Ecosystems</li>
+            <li>Hospital Reprocessing Workflows &amp; Tech Integration</li>
+            <li>Testing & Instruction Design for Pediatric Self-Injectors</li>
+            <li>Financial Service Customer Journeys</li>
+          </ul>
+          <ul>
+            <li>Tourism Platforms Networking Small Businesses</li>
+            <li>Oral-History Archive &amp; Research Experiences</li>
+            <li>Retail E-Commerce</li>
+            <li>Media &amp; Entertainment Products</li>
+            <li>Influencer-Led Mentoring Programs</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="h-rule" />
+    <div class="client-logos">
+      <img src="images/logos/citi-logo.svg" alt="Citi" />
+      <img src="images/logos/emirates-logo.svg" alt="Emirates" />
+      <img src="images/logos/flourish-logo.svg" alt="Flourish" />
+      <img src="images/logos/ford-logo.svg" alt="Ford" />
+      <img src="images/logos/general-electric-logo.svg" alt="General Electric" />
+      <img src="images/logos/hbo-logo.svg" alt="HBO" />
+      <img src="images/logos/hp-logo.svg" alt="HP" />
+      <img src="images/logos/intrawest-logo.svg" alt="Intrawest" />
+      <img src="images/logos/johnson-&-johnson-logo.svg" alt="Johnson &amp; Johnson" />
+      <img src="images/logos/mlb-logo.svg" alt="MLB" />
+      <img src="images/logos/nbcu-logo.svg" alt="NBCUniversal" />
+      <img src="images/logos/new-york-state-logo.svg" alt="New York State" />
+      <img src="images/logos/otsuka-logo.svg" alt="Otsuka" />
+      <img src="images/logos/rithm-logo.svg" alt="Rithm" />
+      <img src="images/logos/target-logo.svg" alt="Target" />
+      <img src="images/logos/toyota-logo.svg" alt="Toyota" />
+      <img src="images/logos/usma-logo.svg" alt="West Point" />
+    </div>
+
+  </main>
+
+  <footer>© 2026 • Dream Scenario LLC</footer>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-top">
+      <a href="index.html"><img src="images/ds-logo.svg" alt="Dream Scenario" /></a>
+      <button class="close-btn" id="closeBtn" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="nav-overlay-links">
+      <a href="practice.html">Practice</a>
+      <a href="services.html">Services</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <script src="nav.js"></script>
+
+</body>
+</html>
