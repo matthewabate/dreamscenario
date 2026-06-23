@@ -85,19 +85,23 @@
 
     .service-deliverables {
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 12px;
       line-height: 15px;
-      color: var(--muted);
+      color: var(--text);
       padding-top: 15px;
       align-self: start;
+    }
+
+    .service-deliverables::before {
+      content: "Examples: ";
     }
 
     @media (max-width: 768px) {
       .services-heading { font-size: clamp(30px, 8vw, 56px); line-height: clamp(36px, 9.6vw, 60px); margin-top: 30px; text-align: left; }
       .service-name { font-size: 15px; line-height: 21px; }
       .service-body { font-size: 12px; line-height: 18px; }
-      .service-deliverables { font-size: 9px; line-height: 12px; color: var(--text); }
+      .service-deliverables { font-size: 9px; line-height: 12px; }
 
       .services-grid { display: block; }
       .service-col {
