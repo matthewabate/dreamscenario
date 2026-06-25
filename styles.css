@@ -168,11 +168,6 @@ main {
 
 /* ─── FOOTER — fixed at viewport bottom ─── */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
   padding: 30px;
   font-size: 8px;
   line-height: 8px;
