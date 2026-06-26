@@ -156,10 +156,9 @@ nav a[href="contact.html"]:not(.active):hover { text-decoration: underline; text
 
 /* ─── MAIN / CONTENT — hugs vertically, fills horizontally, auto-centered ─── */
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 0 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 100%;
   padding: 15px;
 }
