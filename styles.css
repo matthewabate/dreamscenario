@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   background: #fff;
-  padding: 60px 30px 50px;
+  padding: 60px 30px 0;
 }
 
 /* ─── HEADER — fixed at viewport top ─── */
@@ -156,14 +156,16 @@ nav a[href="contact.html"]:not(.active):hover { text-decoration: underline; text
 
 /* ─── MAIN / CONTENT — hugs vertically, fills horizontally, auto-centered ─── */
 main {
-  flex: 0 0 auto;
-  margin: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding: 15px;
 }
 
 @media (min-width: 1800px) {
-  main { max-width: 60%; }
+  main { max-width: 60%; margin-left: auto; margin-right: auto; }
 }
 
 /* ─── FOOTER — fixed at viewport bottom ─── */
