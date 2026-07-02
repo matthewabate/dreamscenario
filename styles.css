@@ -1,39 +1,81 @@
 /* ============================================================
-   styles.css — Dream Scenario shared styles
+   styles.css — Dream Scenario
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 
+/* ─── RESET ─── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { height: 100%; }
+h1, h2, h3, h4, h5, h6 { font-weight: 400; font-style: normal; font-synthesis: none; }
 
+/* ─── GLOBAL COLOR VARIABLES ─── */
 :root {
-  --teal:       #69BFB8;
+  --teal:       #69BFBF;
   --teal-light: #C3E5E3;
-  --pink:       #E57EB2;
-  --gold:       #E5BA39;
-  --olive:      #B5CC70;
+  --pink:       #E55CA0;
+  --gold:       #7BAEE0;
+  --olive:      #B27EE5;
   --text:       #858C87;
   --muted:      #A4B2AB;
-  --dark:       #152625;
-  --dark-rgb:   21, 38, 37;
+  --dark:       #1A1F1E;
+  --dark-rgb:   26, 31, 30;
 }
 
-/* ── BODY: content auto-centers between fixed header and footer ── */
+/* ─── PAGE VARIABLES ─── */
+:root {
+  --accent: var(--teal);
+  --header-h: 78px;
+  --section-bg: rgba(26, 31, 30, 0.9);
+  /* Design unit: 1px at 1440px (13" M1 MBP), scales to 1.556px at ~2240px */
+  --u: clamp(1px, 0.06944vw, 1.556px);
+}
+
+/* ─── SECTION ACCENT COLORS ─── */
+[data-accent="gold"]  { --section-accent: var(--gold); }
+[data-accent="pink"]  { --section-accent: var(--pink); }
+[data-accent="olive"] { --section-accent: var(--olive); }
+[data-accent="teal"]  { --section-accent: var(--teal); }
+
+/* ─── BODY ─── */
+html { height: auto; }
+
 body {
   font-family: 'Urbanist', sans-serif;
   font-weight: 400;
-  color: var(--text);
+  padding: 0 !important;
+  background: transparent;
+  color: #fff;
+  display: block;
+  height: auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  padding: 60px 30px 0;
+  overflow-x: hidden;
 }
 
-/* ─── HEADER — fixed at viewport top ─── */
+/* ─── LOGO LOCKUP ─── */
+.logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.logo-lockup img { width: 18px; height: 18px; display: block; }
+
+.wordmark {
+  font-family: 'Abril Fatface', serif;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  letter-spacing: 0.3px;
+}
+.wordmark .wd { color: var(--teal-light); }
+.wordmark .ws { color: #fff; }
+
+/* ─── HEADER ─── */
 header {
   display: flex;
   align-items: center;
@@ -44,21 +86,8 @@ header {
   right: 0;
   z-index: 100;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.45);
+  background: transparent;
 }
-
-.logo-lockup {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-}
-
-.logo-lockup img { width: 18px; height: 18px; display: block; }
-
-.wordmark { font-family: 'Abril Fatface', serif; font-size: 15px; line-height: 18px; font-weight: 400; font-style: normal; font-synthesis: none; letter-spacing: 0.3px; }
-.wordmark .wd { color: var(--text); }
-.wordmark .ws { color: #A4B2AB; }
 
 nav { display: flex; align-items: center; gap: 30px; }
 
@@ -68,24 +97,35 @@ nav a {
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--text);
+  color: #fff;
   text-decoration: none;
 }
 
-nav a.active { pointer-events: none; cursor: default; text-decoration: underline; text-decoration-color: var(--accent, var(--text)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-nav a[href="practice.html"]:not(.active):hover { text-decoration: underline; text-decoration-color: var(--teal);  text-decoration-thickness: 2px; text-underline-offset: 4px; }
-nav a[href="services.html"]:not(.active):hover { text-decoration: underline; text-decoration-color: var(--pink);  text-decoration-thickness: 2px; text-underline-offset: 4px; }
-nav a[href="about.html"]:not(.active):hover   { text-decoration: underline; text-decoration-color: var(--gold);  text-decoration-thickness: 2px; text-underline-offset: 4px; }
-nav a[href="contact.html"]:not(.active):hover { text-decoration: underline; text-decoration-color: var(--olive); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+nav a.active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  pointer-events: none;
+}
 
-/* ─── HAMBURGER BUTTON (hidden on desktop) ─── */
+nav a:not(.active):hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--section-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* ─── HAMBURGER BUTTON ─── */
 .hamburger-btn {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  color: var(--text);
+  color: #fff;
   line-height: 0;
 }
 
@@ -154,70 +194,394 @@ nav a[href="contact.html"]:not(.active):hover { text-decoration: underline; text
 .nav-overlay-links a.active { color: var(--accent, #fff); }
 .nav-overlay-links a:hover { opacity: 0.6; }
 
-/* ─── MAIN / CONTENT — hugs vertically, fills horizontally, auto-centered ─── */
-main {
-  flex: 0 0 auto;
-  margin-top: auto;
-  margin-bottom: auto;
+/* ─── HEADER GRADIENT ─── */
+#nav-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(26,31,30,0.5) 0%, rgba(26,31,30,0) 100%);
+  z-index: 99;
+  pointer-events: none;
+}
+
+/* ─── HERO — fixed behind scroll content ─── */
+#hero {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  padding: 15px;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
-@media (min-width: 1800px) {
-  main { max-width: 60%; margin-left: auto; margin-right: auto; }
+#hero-text {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  clip-path: inset(0);
+  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-/* ─── FOOTER ─── */
-footer {
-  padding: 30px 0;
+#hero-text.is-open {
+  clip-path: inset(0 0 calc(100vh - var(--header-h)) 0);
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 31, 30, 0.3);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--header-h) 30px 0;
+}
+
+.home-headline {
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(48px, 7.89vw, 220px);
+  line-height: 0.8;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: calc(7.2 * clamp(48px, 7.89vw, 220px));
+  margin: 0 auto;
+  text-shadow: 0px 3px 9px rgba(0,0,0,0.30);
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+.home-headline span { display: block; }
+.home-headline .teal  { color: var(--teal); }
+.home-headline .teal2 { color: var(--teal-light); }
+.home-headline .wht   { color: #fff; }
+
+.hero-footer {
+  position: relative;
+  z-index: 3;
+  padding: 30px;
   font-size: 8px;
   line-height: 8px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255,255,255,0.4);
 }
 
-/* ─── SHARED ─── */
-.h-rule { border: none; border-top: 1px solid var(--muted); }
+/* ─── SCROLL BODY — fixed panel that slides up from below ─── */
+#scroll-body {
+  position: fixed;
+  top: var(--header-h);
+  left: 30px;
+  right: 30px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--section-bg);
+  z-index: 1;
+  transform: translateY(calc(100% + 30px));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-.section-name {
-  font-family: 'Abril Fatface', serif;
-  font-size: 18px;
-  line-height: 21px;
-  font-weight: 400;
-  font-style: normal;
-  font-synthesis: none;
+#scroll-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+#scroll-body.is-open {
+  transform: translateY(0);
+}
+
+/* ─── CONTENT SECTIONS ─── */
+.content-section {
+  padding-bottom: calc(180 * var(--u));
+  min-height: calc(100vh - var(--header-h) - 30px);
+}
+
+.content-section:last-child { min-height: calc(100vh - var(--header-h) - 30px - 38px); }
+
+.section-inner {
+  display: flex;
+  padding: 0 calc(60 * var(--u));
+  align-items: flex-start;
+}
+
+/* LEFT COLUMN — sticky within its section */
+.section-left {
+  width: 27%;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: calc(30 * var(--u));
+  padding-right: calc(30 * var(--u));
+}
+
+/* VERTICAL RULE */
+.v-rule {
+  display: none;
+}
+
+/* RIGHT COLUMN */
+.section-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: calc(102 * var(--u)) 0 0 calc(30 * var(--u));
+}
+
+/* ─── SECTION LABEL ─── */
+.section-label {
+  font-family: 'Urbanist', sans-serif;
+  font-size: calc(18 * var(--u));
+  line-height: calc(42 * var(--u));
+  font-weight: 600;
+  color: var(--section-accent);
+}
+
+/* ─── SECTION HEADINGS ─── */
+.section-heading {
+  font-family: 'Urbanist', sans-serif;
+  font-size: calc(30 * var(--u));
+  line-height: 1.2;
+  font-weight: 600;
+  color: #fff;
+  margin-top: calc(30 * var(--u));
+}
+
+/* ─── BODY TEXT ─── */
+.section-right p {
+  font-size: calc(18 * var(--u));
+  line-height: 1.5;
+  color: #fff;
+}
+
+.section-right p + p { margin-top: calc(30 * var(--u)); }
+
+/* ─── SERVICES ─── */
+.service-subnav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(21 * var(--u));
+  margin-top: calc(30 * var(--u));
+}
+
+.service-subnav a {
+  font-size: calc(12 * var(--u));
+  line-height: calc(24 * var(--u));
+  height: calc(24 * var(--u));
+  font-weight: 600;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
-/*
-  Abril Fatface is a single-weight font. Browsers that can't find a
-  bold variant will fake it by rendering the glyph twice (synthetic bold),
-  which looks like a doubled/shadowed headline. Resetting headings to
-  font-weight: 400 and font-synthesis: none prevents that.
-*/
-h1, h2, h3, h4, h5, h6 { font-weight: 400; font-style: normal; font-synthesis: none; }
+.service-subnav a:hover { color: #fff; }
 
-/* ============================================================
-   RESPONSIVE — mobile (≤ 768px)
-   ============================================================ */
+/* ─── SITE LINKS ─── */
+:root { --site-link-color: #69BFBF; }
+.service-subnav a,
+#contact .section-right a { color: var(--site-link-color); }
+
+.service-subnav a.active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--section-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  pointer-events: none;
+}
+
+/* ─── CONTENT ROWS ─── */
+.service-panel {
+  padding-top: 0;
+  padding-bottom: calc(90 * var(--u));
+}
+
+.service-panel:first-child { padding-top: 0; }
+.service-panel:last-child  { padding-bottom: 0; }
+
+.service-panel-cols {
+  display: flex;
+  gap: calc(60 * var(--u));
+  align-items: stretch;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  padding-left: calc(30 * var(--u));
+}
+
+.service-body    { flex: 2; min-width: 0; }
+.service-outputs { flex: 1; min-width: 0; }
+
+.service-outputs-label {
+  font-size: calc(12 * var(--u));
+  line-height: calc(24 * var(--u));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: calc(9 * var(--u));
+}
+
+.service-outputs ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.service-outputs ul li::before {
+  content: '–';
+  display: inline-block;
+  margin-right: 0.4em;
+}
+
+.service-outputs ul li {
+  font-size: calc(12 * var(--u));
+  line-height: calc(15 * var(--u));
+  font-weight: 300;
+  color: #fff;
+}
+
+.service-outputs ul li + li { margin-top: calc(9 * var(--u)); }
+
+/* ─── PORTRAIT ─── */
+.portrait-outputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.portrait-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.portrait-outputs .portrait-caption {
+  flex-shrink: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: calc(11 * var(--u));
+  line-height: calc(12 * var(--u));
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin-top: calc(9 * var(--u));
+}
+
+/* ─── CLIENT LOGOS ─── */
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--logo-cell-w, max-content));
+  gap: calc(30 * var(--u));
+  align-items: center;
+  justify-items: center;
+  margin-top: calc(30 * var(--u));
+}
+
+.client-logos img {
+  height: calc(18 * var(--u));
+  width: auto;
+  display: block;
+  transition: opacity 0.25s;
+}
+
+/* ─── SECTION-RIGHT LINKS ─── */
+.section-right a { text-decoration: none; }
+.section-right a:hover { text-decoration: underline; }
+
+/* ─── PAGE FOOTER ─── */
+footer#page-footer {
+  padding: 30px;
+  font-size: 8px;
+  line-height: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ─── MOBILE ─── */
 @media (max-width: 768px) {
+  body { overscroll-behavior: none; }
 
-  body { padding: 75px 21px 0; overscroll-behavior: none; }
-  main { padding: 21px; }
+  #scroll-body { margin-left: 0; margin-right: 0; }
 
-  /* Fixed header — stays put even during Safari rubber-band scroll */
-  header { position: fixed; top: 21px; left: 21px; right: 21px; z-index: 100; padding: 15px; background: #fff; }
+  .hero-content { padding: var(--header-h) 21px 0; }
+  .home-headline { font-size: 17vw; max-width: 100%; }
+  .home-headline .wht br { display: none; }
+  .hero-footer { padding: 21px; }
 
-  /* Hide desktop nav, show hamburger */
+  header { position: fixed; top: 0; left: 0; right: 0; padding: 15px 21px; }
   header nav { display: none; }
   .hamburger-btn { display: block; }
 
-  /* Remove forced headline breaks — let text reflow naturally */
-  h1 br { display: none; }
+  .section-inner {
+    flex-direction: column;
+    padding: 0 21px;
+    min-height: auto;
+  }
 
-  /* Footer: padding-bottom anchors to safe area; padding-top gives interior pages breathing room */
-  footer { padding-top: 30px; padding-bottom: 21px; }
+  .section-left {
+    position: relative;
+    top: auto;
+    height: auto;
+    width: 100%;
+    padding: 60px 0 27px;
+    justify-content: flex-start;
+  }
 
+  .section-right {
+    min-height: auto;
+    padding: 30px 0 60px;
+    justify-content: flex-start;
+  }
+
+  .section-right p { font-size: 18px; line-height: 24px; }
+
+  .service-subnav { flex-direction: row; flex-wrap: wrap; gap: 10px 18px; margin-top: 18px; }
+  .service-subnav a { font-size: 9px; }
+
+  .service-panel { padding: 40px 0; }
+  .service-panel-cols { flex-direction: column; gap: 24px; }
+
+  footer#page-footer { padding: 21px; }
 }

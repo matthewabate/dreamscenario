@@ -10,7 +10,7 @@
   <meta name="description" content="Dream Scenario is a research-led strategy and design studio. We help clients understand how behavior and context drive customer decisions and shape business opportunities." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Dream Scenario" />
-  <meta name="theme-color" content="#152625" />
+  <meta name="theme-color" content="#1A1F1E" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dreamscenario.studio/" />
@@ -53,139 +53,486 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    :root { --accent: var(--teal); }
-
-    body {
-      background: #3a3835;
-      color: #fff;
-      /* 84px = fixed header height (18px logo + 2×30px padding) + breathing room */
-      padding-top: 84px;
-      padding-bottom: 0;
-    }
-
-    .bg-video {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    /* Dark teal overlay over video — var(--dark-rgb) at different opacities */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(var(--dark-rgb), 0.3);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Gradient behind nav for legibility */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 90px;
-      background: linear-gradient(to bottom, rgba(var(--dark-rgb), 0.5) 0%, rgba(var(--dark-rgb), 0) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Header: flush to viewport edge on home page */
-    header { background: transparent; }
-
-    /* Nav links: white on home page; underline hover from global attribute selectors */
-    nav a { color: #fff; }
-
-    /* Wordmark colors match hero headline */
-    .wordmark .wd { color: var(--teal-light); }
-    .wordmark .ws { color: #fff; }
-
-    main { text-align: center; }
-
-    .home-headline {
-      font-family: 'Abril Fatface', serif;
-      font-size: clamp(48px, 7.89vw, 220px);
-      line-height: 0.8;
-      text-transform: uppercase;
-      text-align: center;
-      max-width: calc(7.2 * clamp(48px, 7.89vw, 220px));
-      margin: 0 auto;
-      text-shadow: 0px 3px 9px rgba(0, 0, 0, 0.30);
-    }
-
-    .home-headline span   { display: block; }
-    .home-headline .teal  { color: var(--teal); }
-    .home-headline .teal2 { color: var(--teal-light); }
-    .home-headline .wht   { color: #fff; }
-
-    /* Footer color override only — positioning/padding from styles.css */
-    footer { color: #fff; }
-
-    @media (max-width: 768px) {
-      body { padding: 21px 21px 0; }
-      main { padding: 0; }
-      .home-headline { font-size: 17vw; max-width: 100%; }
-      .hamburger-btn { color: #fff; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
 
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="images/Dream-Scenario-Website-Background-720.webm" type="video/webm">
-  </video>
-
-  <header>
-    <a href="index.html" class="logo-lockup">
+  <!-- ─── HEADER (fixed, always on top) ─── -->
+  <header id="siteHeader">
+    <a href="#" class="logo-lockup" id="logoLink">
       <img src="images/ds-logo.svg" alt="Dream Scenario" />
       <span class="wordmark"><span class="wd">Dream</span><span class="ws">Scenario</span></span>
     </a>
     <nav>
-      <a href="practice.html">Practice</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#approach" data-section="approach" data-accent="gold">Approach</a>
+      <a href="#services" data-section="services" data-accent="pink">Services</a>
+      <a href="#history" data-section="history" data-accent="olive">History</a>
+      <a href="#contact" data-section="contact" data-accent="teal">Contact</a>
     </nav>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </header>
 
-  <main>
-    <h1 class="home-headline">
-      <span class="teal">Dream</span>
-      <span class="teal2">Scenario</span>
-      <span class="wht">is a new problem solving <br>studio</span>
-    </h1>
-  </main>
+  <!-- ─── GRADIENT — fixed layer above sections, below header ─── -->
+  <div id="nav-gradient"></div>
 
-  <footer>© 2026 • Dream Scenario LLC</footer>
+  <!-- ─── HERO — fixed behind everything ─── -->
+  <div id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/Dream-Scenario-Website-Background-720.webm" type="video/webm">
+    </video>
+    <div id="hero-text">
+      <div class="hero-content">
+        <h1 class="home-headline">
+          <span class="teal">Dream</span>
+          <span class="teal2">Scenario</span>
+          <span class="wht">is a new problem solving <br>studio</span>
+        </h1>
+      </div>
+      <div class="hero-footer">© 2026 • Dream Scenario LLC</div>
+    </div>
+  </div>
 
-  <!-- Mobile nav overlay -->
+  <!-- ─── SCROLL BODY — slides up over hero on scroll ─── -->
+  <div id="scroll-body">
+  <div id="scroll-content">
+
+    <!-- ══ APPROACH ══ -->
+    <section class="content-section" id="approach" data-accent="gold">
+      <div class="section-inner">
+
+        <div class="section-left">
+          <p class="section-label">Approach</p>
+          <h2 class="section-heading">Dream Scenario is a research-led strategy and design studio.</h2>
+        </div>
+
+        <div class="v-rule"></div>
+
+        <div class="section-right">
+          <div class="service-panel">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>We help organizations understand how behavior and context shape customer decisions, then help them close the gap between business goals and what customers need.</p>
+                <p>We think design is meant to create value for the people it touches, and that organizations who share that conviction get better outcomes for their business. This studio is built around that mission.</p>
+                <p>People come to us when complex, ambiguous challenges have become overwhelming, or the human side of the problem isn't clear. We work at whatever scale the problem calls for, from focused sessions to multi-phase programs.</p>
+                <p>We are independent and technology agnostic to focus on creating the best experience.</p>
+              </div>
+              <div class="service-outputs"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ SERVICES ══ -->
+    <section class="content-section" id="services" data-accent="pink">
+      <div class="section-inner">
+
+        <div class="section-left">
+          <p class="section-label">Services</p>
+          <h2 class="section-heading">Human-Centered.<br>Outcome-Focused.</h2>
+          <nav class="service-subnav" id="serviceSubnav" aria-label="Services">
+            <a data-panel="panel-hcs" class="active">Human-Centered Strategy</a>
+            <a data-panel="panel-sd">Service Design</a>
+            <a data-panel="panel-sde">Spatial &amp; Digital Experiences</a>
+            <a data-panel="panel-bi">Behavioral Insights</a>
+          </nav>
+        </div>
+
+        <div class="v-rule"></div>
+
+        <div class="section-right" id="servicesRight">
+
+          <div class="service-panel" id="panel-hcs">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Ensure organizations solve the right problems before scaling by mapping human insights onto concrete business opportunities and strategic goals.</p>
+                <p>This reduces uncertainty by defining what to do and why, so downstream initiatives have clear purpose, utility, and efficacy.</p>
+              </div>
+              <div class="service-outputs">
+                <div class="service-outputs-label">Typical Outputs</div>
+                <ul>
+                  <li>Ethnographic research</li>
+                  <li>Behavior &amp; mindset analysis</li>
+                  <li>Jobs-to-be-done research</li>
+                  <li>Customer/user archetypes</li>
+                  <li>Insight synthesis</li>
+                  <li>Opportunity mapping</li>
+                  <li>Journey maps</li>
+                  <li>Participatory design research</li>
+                  <li>Concept-led research</li>
+                  <li>Usability &amp; efficacy testing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-panel" id="panel-sd">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Orchestrate how a service should work by connecting every human, digital, physical, and operational element.</p>
+                <p>This goes beyond CX or UX to deliver a coherent, buildable vision grounded in both human needs and how the organization works.</p>
+              </div>
+              <div class="service-outputs">
+                <div class="service-outputs-label">Typical Outputs</div>
+                <ul>
+                  <li>Service blueprints</li>
+                  <li>Customer &amp; ecosystem maps</li>
+                  <li>Current state / future state analyses</li>
+                  <li>Experience visions &amp; principles</li>
+                  <li>System &amp; process flows</li>
+                  <li>Service prototypes</li>
+                  <li>Experience roadmaps</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-panel" id="panel-sde">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Design for physical, digital, or hybrid environments by harmonizing space, workflow, and the environmental factors shaping how people navigate space and time.</p>
+                <p>This reduces friction, provides tangible benefits, and strengthens the relationship between people and the brand.</p>
+              </div>
+              <div class="service-outputs">
+                <div class="service-outputs-label">Typical Outputs</div>
+                <ul>
+                  <li>Workflow &amp; setting analysis</li>
+                  <li>Experience concepts and prototypes</li>
+                  <li>Workspace optimization</li>
+                  <li>Systems integration recommendations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-panel" id="panel-bi">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Investigate the cognitive, environmental, and social factors driving people's choices to untangle why they behave the way they do.</p>
+                <p>This connects root behaviors to business goals and proves especially valuable in complex, high-stakes programs where understanding behavioral context is critical.</p>
+              </div>
+              <div class="service-outputs">
+                <div class="service-outputs-label">Typical Outputs</div>
+                <ul>
+                  <li>Behavioral research and analysis</li>
+                  <li>Decision context mapping</li>
+                  <li>Barrier and motivator identification</li>
+                  <li>Behavior change frameworks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /servicesRight -->
+      </div>
+    </section>
+
+    <!-- ══ HISTORY ══ -->
+    <section class="content-section" id="history" data-accent="olive">
+      <div class="section-inner">
+
+        <div class="section-left">
+          <p class="section-label">History</p>
+          <h2 class="section-heading">We think like an agency &amp; work like your team.</h2>
+        </div>
+
+        <div class="v-rule"></div>
+
+        <div class="section-right">
+          <div class="service-panel">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>We are based in the New York Metro area and work with clients across the US.</p>
+                <p>Dream Scenario was started by Matthew Abate to counter the drift away from solving real problems and creating value for people in favor of short-term metrics.</p>
+                <p>Every project draws on a network of specialists who've spent their careers at agencies, startups, and in-house teams across regulated and mission-driven sectors.</p>
+              </div>
+              <div class="service-outputs portrait-outputs">
+                <div class="portrait-wrap">
+                  <img src="images/m-abate-dream-scenario.png" alt="Matthew Abate" />
+                </div>
+                <p class="portrait-caption">Matthew Abate • Founder &amp; Principle</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-panel">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Some brands we've helped</p>
+                <div class="client-logos">
+                  <img src="images/logos/citi-logo.svg" alt="Citi" />
+                  <img src="images/logos/emirates-logo.svg" alt="Emirates" />
+                  <img src="images/logos/ford-logo.svg" alt="Ford" />
+                  <img src="images/logos/general-electric-logo.svg" alt="General Electric" />
+                  <img src="images/logos/hbo-logo.svg" alt="HBO" />
+                  <img src="images/logos/intrawest-logo.svg" alt="Intrawest" />
+                  <img src="images/logos/johnson-&-johnson-logo.svg" alt="Johnson &amp; Johnson" />
+                  <img src="images/logos/mlb-logo.svg" alt="MLB" />
+                  <img src="images/logos/nbcu-logo.svg" alt="NBCUniversal" />
+                  <img src="images/logos/new-york-state-logo.svg" alt="New York State" />
+                  <img src="images/logos/rithm-logo.svg" alt="Rithm" />
+                  <img src="images/logos/target-logo.svg" alt="Target" />
+                  <img src="images/logos/toyota-logo.svg" alt="Toyota" />
+                  <img src="images/logos/usma-logo.svg" alt="West Point" />
+                </div>
+              </div>
+              <!-- <div class="service-outputs"></div> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <section class="content-section" id="contact" data-accent="teal">
+      <div class="section-inner">
+
+        <div class="section-left">
+          <p class="section-label">Contact</p>
+          <h2 class="section-heading">We can't wait to hear from you.</h2>
+        </div>
+
+        <div class="v-rule"></div>
+
+        <div class="section-right">
+          <div class="service-panel">
+            <div class="service-panel-cols">
+              <div class="service-body">
+                <p>Maybe you know exactly what you need, or maybe we should talk through the possibilities. Let's schedule some time to get to know each other and understand the challenges you're running into.</p>
+              </div>
+              <div class="service-outputs">
+                <p><a href="mailto:hello@dreamscenario.studio">hello@dreamscenario.studio</a></p>
+                <p>Follow us on <a href="https://www.linkedin.com/company/dreamscenario/" target="_blank" rel="noopener">LinkedIn</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div><!-- /scroll-content -->
+  <footer id="page-footer">© 2026 • Dream Scenario LLC</footer>
+
+  </div><!-- /scroll-body -->
+
+  <!-- ─── MOBILE NAV OVERLAY ─── -->
   <div class="nav-overlay" id="navOverlay">
     <div class="nav-overlay-top">
-      <a href="index.html"><img src="images/ds-logo.svg" alt="Dream Scenario" /></a>
+      <a href="#" id="overlayLogoLink"><img src="images/ds-logo.svg" alt="Dream Scenario" /></a>
       <button class="close-btn" id="closeBtn" aria-label="Close menu">
         <span class="material-symbols-outlined">close</span>
       </button>
     </div>
-    <nav class="nav-overlay-links">
-      <a href="practice.html">Practice</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+    <nav class="nav-overlay-links" id="overlayNav">
+      <a href="#approach" data-section="approach" data-accent="gold">Approach</a>
+      <a href="#services" data-section="services" data-accent="pink">Services</a>
+      <a href="#history" data-section="history" data-accent="olive">History</a>
+      <a href="#contact" data-section="contact" data-accent="teal">Contact</a>
     </nav>
   </div>
 
-  <script src="nav.js"></script>
+  <script>
+    (function () {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const closeBtn     = document.getElementById('closeBtn');
+      const navOverlay   = document.getElementById('navOverlay');
+      const scrollBody    = document.getElementById('scroll-body');
+      const scrollContent = document.getElementById('scroll-content');
+      const heroText      = document.getElementById('hero-text');
+      const sectionIds   = ['approach', 'services', 'history', 'contact'];
+      const headerLinks  = document.querySelectorAll('header nav a[data-section]');
+      const overlayLinks = document.querySelectorAll('#overlayNav a[data-section]');
+
+      /* ── Offset of el from scroll-content top ── */
+      function offsetFromPanel(el) {
+        return scrollContent.scrollTop
+          + el.getBoundingClientRect().top
+          - scrollContent.getBoundingClientRect().top;
+      }
+
+      /* ── Open / close panel ── */
+      function openPanel(sectionEl) {
+        const top = sectionEl ? offsetFromPanel(sectionEl) : 0;
+        if (scrollBody.classList.contains('is-open')) {
+          scrollContent.scrollTo({ top, behavior: 'smooth' });
+        } else {
+          scrollContent.scrollTo({ top, behavior: 'instant' });
+          scrollBody.classList.add('is-open');
+          heroText.classList.add('is-open');
+          updateActive();
+          updateSubnav();
+        }
+      }
+
+      function closePanel() {
+        scrollBody.classList.remove('is-open');
+        heroText.classList.remove('is-open');
+        scrollContent.scrollTo({ top: 0, behavior: 'instant' });
+        headerLinks.forEach(a  => a.classList.remove('active'));
+        overlayLinks.forEach(a => a.classList.remove('active'));
+        document.documentElement.style.setProperty('--accent', 'var(--teal)');
+      }
+
+      /* ── Mobile nav ── */
+      hamburgerBtn.addEventListener('click', () => navOverlay.classList.add('is-open'));
+      closeBtn.addEventListener('click',     () => navOverlay.classList.remove('is-open'));
+
+      /* ── Logo → close panel ── */
+      ['logoLink', 'overlayLogoLink'].forEach(id => {
+        document.getElementById(id).addEventListener('click', e => {
+          e.preventDefault();
+          closePanel();
+          navOverlay.classList.remove('is-open');
+        });
+      });
+
+      /* ── Nav anchor links → open panel + scroll to section ── */
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        a.addEventListener('click', e => {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            openPanel(target);
+            navOverlay.classList.remove('is-open');
+          }
+        });
+      });
+
+      /* ── Active section tracking (scroll-based, 1:1 with what's visible) ── */
+      function setActiveSection(id) {
+        headerLinks.forEach(a  => a.classList.toggle('active', a.dataset.section === id));
+        overlayLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+        const accents = { approach: 'var(--gold)', services: 'var(--pink)', history: 'var(--olive)', contact: 'var(--teal)' };
+        document.documentElement.style.setProperty('--accent', accents[id] || 'var(--teal)');
+      }
+
+      function updateActive() {
+        if (!scrollBody.classList.contains('is-open')) return;
+        const mid = scrollContent.scrollTop + scrollContent.clientHeight * 0.5;
+        let activeId = sectionIds[0];
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= mid) activeId = id;
+        }
+        setActiveSection(activeId);
+      }
+
+      scrollContent.addEventListener('scroll', updateActive, { passive: true });
+
+      /* ── Services submenu ── */
+      const serviceNavLinks = document.querySelectorAll('.service-subnav a');
+      const servicePanels   = document.querySelectorAll('.service-panel');
+
+      /* Returns the right column's top padding as the headline offset for
+         subnav scroll calculations */
+      function getHeadlineOffset() {
+        const right = document.querySelector('.section-right');
+        return right ? parseFloat(getComputedStyle(right).paddingTop) : 102;
+      }
+
+      serviceNavLinks.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const panel = document.getElementById(link.dataset.panel);
+          if (!panel) return;
+          const panelTop     = panel.getBoundingClientRect().top;
+          const containerTop = scrollContent.getBoundingClientRect().top;
+          const panelPadding = parseInt(getComputedStyle(panel).paddingTop) || 0;
+          scrollContent.scrollTo({
+            top: scrollContent.scrollTop + (panelTop - containerTop) - getHeadlineOffset() + panelPadding,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      const servicePanelIds = ['panel-hcs', 'panel-sd', 'panel-sde', 'panel-bi'];
+
+      function updateSubnav() {
+        const scrollTop = scrollContent.scrollTop;
+        let activePanelId = servicePanelIds[0];
+        for (const id of servicePanelIds) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          const panelPadding = parseInt(getComputedStyle(el).paddingTop) || 0;
+          if (el.offsetTop + panelPadding - getHeadlineOffset() <= scrollTop + 1) activePanelId = id;
+        }
+        serviceNavLinks.forEach(a =>
+          a.classList.toggle('active', a.dataset.panel === activePanelId)
+        );
+      }
+
+      scrollContent.addEventListener('scroll', updateSubnav, { passive: true });
+
+      /* ── Detent thresholds ── */
+      const WHEEL_DETENT      = 56;  /* scroll up to close */
+      const HERO_OPEN_DETENT  = 112; /* scroll down to open — less sensitive */
+
+      /* ── Scroll down from hero → open panel (with detent) ── */
+      let heroOpenDetent = 0;
+
+      document.addEventListener('wheel', e => {
+        if (scrollBody.classList.contains('is-open')) return;
+        if (e.deltaY > 0) {
+          heroOpenDetent += Math.abs(e.deltaY);
+          if (heroOpenDetent >= HERO_OPEN_DETENT) {
+            heroOpenDetent = 0;
+            openPanel(document.getElementById('approach'));
+          }
+        } else {
+          heroOpenDetent = 0;
+        }
+      }, { passive: true });
+
+      /* ── Scroll up past top → close panel (with detent) ── */
+      let wheelDetent = 0;
+
+      scrollBody.addEventListener('wheel', e => {
+        if (!scrollBody.classList.contains('is-open')) return;
+        if (scrollContent.scrollTop <= 1 && e.deltaY < 0) {
+          wheelDetent += Math.abs(e.deltaY);
+          if (wheelDetent >= WHEEL_DETENT) {
+            wheelDetent = 0;
+            closePanel();
+          }
+        } else {
+          wheelDetent = 0;
+        }
+      }, { passive: true });
+
+      /* Touch: pull down from top to close */
+      let touchStartY = 0;
+      scrollBody.addEventListener('touchstart', e => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      scrollBody.addEventListener('touchmove', e => {
+        if (!scrollBody.classList.contains('is-open')) return;
+        if (scrollContent.scrollTop === 0 && e.touches[0].clientY - touchStartY > 80) {
+          closePanel();
+        }
+      }, { passive: true });
+
+    // Equalize logo cell widths to the widest logo
+    function equalizeLogos() {
+      const grid = document.querySelector('.client-logos');
+      if (!grid) return;
+      const imgs = grid.querySelectorAll('img');
+      let maxW = 0;
+      imgs.forEach(img => { maxW = Math.max(maxW, img.getBoundingClientRect().width); });
+      if (maxW > 0) grid.style.setProperty('--logo-cell-w', maxW + 'px');
+    }
+    if (document.readyState === 'complete') { equalizeLogos(); }
+    else { window.addEventListener('load', equalizeLogos); }
+
+    })();
+  </script>
 
 </body>
 </html>
