@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400; font-style: normal; font-synthesis: n
 [data-accent="teal"]  { --section-accent: var(--teal); }
 
 /* ─── BODY ─── */
-html { height: auto; background: #fff; }
+html { height: auto; }
 
 body {
   font-family: 'Urbanist', sans-serif;
@@ -550,7 +550,6 @@ footer#page-footer {
   :root { --header-h: 120px; }
 
   body { overscroll-behavior: none; }
-
 
   .logo-lockup img { width: 24px; height: 24px; }
   .wordmark { font-size: 20px; line-height: 24px; }
