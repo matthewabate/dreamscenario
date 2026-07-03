@@ -549,7 +549,7 @@ footer#page-footer {
 @media (max-width: 768px) {
   :root { --header-h: 120px; }
 
-  body { overscroll-behavior: none; }
+  body { overscroll-behavior: none; overflow: hidden; }
 
   .logo-lockup img { width: 24px; height: 24px; }
   .wordmark { font-size: 20px; line-height: 24px; }
