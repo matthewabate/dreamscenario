@@ -551,15 +551,7 @@ footer#page-footer {
 
   body { overscroll-behavior: none; }
 
-  .hero-video { position: fixed; }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: #1A1F1E;
-    z-index: -1;
-  }
+  html { background: #1A1F1E; }
 
   .logo-lockup img { width: 24px; height: 24px; }
   .wordmark { font-size: 20px; line-height: 24px; }
