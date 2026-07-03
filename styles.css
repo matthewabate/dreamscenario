@@ -39,15 +39,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400; font-style: normal; font-synthesis: n
 [data-accent="teal"]  { --section-accent: var(--teal); }
 
 /* ─── BODY ─── */
-html { height: auto; background: #000; }
-
-/* ─── SAFE AREA VIDEO EXTENSION ─── */
-@media (max-width: 768px) {
-  #hero {
-    top: calc(-1 * env(safe-area-inset-top, 0px));
-    bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
-  }
-}
+html { height: auto; background: #fff; }
 
 body {
   font-family: 'Urbanist', sans-serif;
@@ -557,7 +549,7 @@ footer#page-footer {
 @media (max-width: 768px) {
   :root { --header-h: 120px; }
 
-  body { overscroll-behavior: none; }
+  body { overscroll-behavior: none; overflow-x: visible; }
 
 
   .logo-lockup img { width: 24px; height: 24px; }
