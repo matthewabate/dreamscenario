@@ -12,7 +12,6 @@
   <meta name="author" content="Dream Scenario" />
   <meta name="theme-color" content="#1A1F1E" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dreamscenario.studio/" />
@@ -535,6 +534,18 @@
     else { window.addEventListener('load', equalizeLogos); }
 
     })();
+
+    // ── Safe area video extension (mobile only) ──
+    if (window.innerWidth <= 768) {
+      const vid = document.querySelector('.hero-video');
+      if (vid) {
+        vid.style.position = 'fixed';
+        vid.style.top = '0';
+        vid.style.left = '0';
+        vid.style.width = '100%';
+        vid.style.height = screen.height + 'px';
+      }
+    }
   </script>
 
 </body>
