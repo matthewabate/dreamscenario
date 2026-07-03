@@ -556,10 +556,10 @@ footer#page-footer {
 
   #scroll-body { top: 0; left: 0; right: 0; bottom: 0; }
 
-  .hero-content { padding: var(--header-h) 21px 0; }
+  .hero-content { padding: 0 30px 0; }
   .home-headline { font-size: 17vw; max-width: 100%; }
   .home-headline .wht br { display: none; }
-  .hero-footer { padding: 30px; }
+  .hero-footer { padding: 30px; position: absolute; bottom: 0; left: 0; right: 0; }
 
   #mobile-header-mask { display: block; }
 
