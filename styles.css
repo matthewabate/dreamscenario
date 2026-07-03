@@ -552,6 +552,7 @@ footer#page-footer {
   body { overscroll-behavior: none; }
 
   .hero-video { position: fixed; }
+  #hero { top: calc(-1 * env(safe-area-inset-top, 0px)); }
 
   .logo-lockup img { width: 24px; height: 24px; }
   .wordmark { font-size: 20px; line-height: 24px; }
