@@ -536,14 +536,17 @@
     })();
 
     // ── Safe area video extension (mobile only) ──
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 768 && window.visualViewport) {
       const vid = document.querySelector('.hero-video');
       if (vid) {
+        const vv = window.visualViewport;
+        const gapTop = vv.offsetTop;
+        const gapBottom = screen.height - (vv.offsetTop + vv.height);
         vid.style.position = 'fixed';
-        vid.style.top = '0';
+        vid.style.top = -gapTop + 'px';
         vid.style.left = '0';
         vid.style.width = '100%';
-        vid.style.height = screen.height + 'px';
+        vid.style.height = (vv.height + gapTop + gapBottom) + 'px';
       }
     }
   </script>
