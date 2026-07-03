@@ -551,6 +551,8 @@ footer#page-footer {
 
   body { overscroll-behavior: none; }
 
+  .hero-video { position: fixed; }
+
   .logo-lockup img { width: 24px; height: 24px; }
   .wordmark { font-size: 20px; line-height: 24px; }
 
