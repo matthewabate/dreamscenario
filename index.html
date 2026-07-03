@@ -53,7 +53,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 
@@ -521,6 +521,19 @@
         if (!scrollBody.classList.contains('is-open')) return;
         if (scrollContent.scrollTop === 0 && e.touches[0].clientY - touchStartY > 80) {
           closePanel();
+        }
+      }, { passive: true });
+
+      /* Touch: swipe up on hero to open panel */
+      let heroTouchStartY = 0;
+      document.getElementById('hero').addEventListener('touchstart', e => {
+        heroTouchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      document.getElementById('hero').addEventListener('touchmove', e => {
+        if (scrollBody.classList.contains('is-open')) return;
+        if (heroTouchStartY - e.touches[0].clientY > 80) {
+          heroTouchStartY = 0;
+          openPanel(document.getElementById('approach'));
         }
       }, { passive: true });
 
