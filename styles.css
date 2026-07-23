@@ -450,16 +450,21 @@ nav a:not(.active):hover {
 
 .service-outputs ul {
   list-style: none;
-  padding-left: 1em;
+  padding: 0;
   margin: 0;
 }
 
 .service-outputs ul li {
-  list-style-type: '– ';
+  display: grid;
+  grid-template-columns: 1em 1fr;
   font-size: calc(12 * var(--u));
   line-height: calc(15 * var(--u));
   font-weight: 300;
   color: #fff;
+}
+
+.service-outputs ul li::before {
+  content: '–';
 }
 
 .service-outputs ul li + li { margin-top: calc(9 * var(--u)); }
