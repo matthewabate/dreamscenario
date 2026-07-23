@@ -454,15 +454,8 @@ nav a:not(.active):hover {
   margin: 0;
 }
 
-.service-outputs ul li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .service-outputs ul li {
-  position: relative;
+  list-style-type: '– ';
   padding-left: 1em;
   font-size: calc(12 * var(--u));
   line-height: calc(15 * var(--u));
