@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400; font-style: normal; font-synthesis: n
 :root {
   --accent: var(--teal);
   --header-h: 78px;
+  /* Space between the panel and the bottom of the window — must match
+     #scroll-body's own bottom inset so the closed-state transform and each
+     section's min-height stay in sync with it. */
+  --panel-bottom: 68px;
   --section-bg: rgba(26, 31, 30, 0.9);
   /* Design unit: 1px at 1440px (13" M1 MBP), scales to 1.556px at ~2240px */
   --u: clamp(1px, 0.06944vw, 1.556px);
@@ -276,7 +280,10 @@ nav a:not(.active):hover {
 .home-headline .wht   { color: #fff; }
 
 .hero-footer {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 3;
   padding: 30px;
   font-size: 8px;
@@ -293,12 +300,12 @@ nav a:not(.active):hover {
   top: var(--header-h);
   left: 30px;
   right: 30px;
-  bottom: 0;
+  bottom: var(--panel-bottom);
   display: flex;
   flex-direction: column;
   background: var(--section-bg);
   z-index: 1;
-  transform: translateY(calc(100% + 30px));
+  transform: translateY(calc(100% + var(--panel-bottom)));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -316,11 +323,10 @@ nav a:not(.active):hover {
 
 /* ─── CONTENT SECTIONS ─── */
 .content-section {
-  padding-bottom: calc(180 * var(--u));
-  min-height: calc(100vh - var(--header-h) - 30px);
+  padding-bottom: calc(60 * var(--u));
+  min-height: calc(100vh - var(--header-h) - var(--panel-bottom));
 }
 
-.content-section:last-child { min-height: calc(100vh - var(--header-h) - 30px - 38px); }
 
 .section-inner {
   display: flex;
@@ -521,17 +527,6 @@ nav a:not(.active):hover {
 .section-right a { text-decoration: none; }
 .section-right a:hover { text-decoration: underline; }
 
-/* ─── PAGE FOOTER ─── */
-footer#page-footer {
-  padding: 30px;
-  font-size: 8px;
-  line-height: 8px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
-}
-
 /* ─── MOBILE HEADER MASK ─── */
 #mobile-header-mask {
   display: none;
@@ -547,7 +542,7 @@ footer#page-footer {
 
 /* ─── MOBILE ─── */
 @media (max-width: 768px) {
-  :root { --header-h: 120px; }
+  :root { --header-h: 120px; --panel-bottom: 0px; }
 
   body { overscroll-behavior: none; }
 
@@ -559,7 +554,6 @@ footer#page-footer {
   .hero-content { padding: 0 30px 0; }
   .home-headline { font-size: 17vw; max-width: 100%; }
   .home-headline .wht br { display: none; }
-  .hero-footer { padding: 30px; position: absolute; bottom: 0; left: 0; right: 0; }
 
   #mobile-header-mask { display: block; }
 
@@ -598,6 +592,4 @@ footer#page-footer {
 
   .service-panel { padding: 37.5px 0; }
   .service-panel-cols { flex-direction: column; gap: 24px; border-left: none; padding-left: 0; }
-
-  footer#page-footer { padding: 30px; }
 }
