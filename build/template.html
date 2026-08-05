@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>{{TITLE}}</title>
+
+ <link rel="icon" type="image/svg+xml" href="images/ds-fav.svg" />
+ <link rel="canonical" href="{{CANONICAL}}" />
+ <meta name="description" content="{{DESCRIPTION}}" />
+ <meta name="robots" content="index, follow" />
+ <meta name="author" content="Dream Scenario" />
+ <meta name="theme-color" content="#1A1F1E" />
+
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="{{CANONICAL}}" />
+ <meta property="og:title" content="{{TITLE}}" />
+ <meta property="og:description" content="{{DESCRIPTION}}" />
+ <meta property="og:image" content="https://dreamscenario.studio/images/og-image.png" />
+ <meta property="og:image:width" content="1200" />
+ <meta property="og:image:height" content="630" />
+ <meta property="og:site_name" content="Dream Scenario" />
+ <meta property="og:locale" content="en_US" />
+
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="{{TITLE}}" />
+ <meta name="twitter:description" content="{{DESCRIPTION}}" />
+ <meta name="twitter:image" content="https://dreamscenario.studio/images/og-image.png" />
+
+ <script type="application/ld+json">
+ {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Dream Scenario",
+  "description": "Dream Scenario is a research-led problem solving studio using human-centric strategy, design, and systems thinking to help purpose-driven businesses and cultural organizations understand the behaviors and contexts shaping customer decisions, then unite business goals with customer needs. Capabilities include strategic design, experience architecture, and experience design.",
+  "url": "https://dreamscenario.studio",
+  "logo": "https://dreamscenario.studio/images/ds-logo.png",
+  "image": "https://dreamscenario.studio/images/og-image.png",
+  "email": "hello@dreamscenario.studio",
+  "areaServed": "New York Metro Area",
+  "sameAs": ["https://www.linkedin.com/company/dreamscenario/"],
+  "knowsAbout": [
+   "Human-Centered Strategy",
+   "Service Design",
+   "Behavioral Insights",
+   "Digital Experience Design",
+   "Phygital Design",
+   "Spatial UX",
+   "Converged Experience Design",
+   "UX Research",
+   "Design Strategy",
+   "Strategic Design",
+   "Experience Architecture",
+   "Experience Design",
+   "Human-Centered Design",
+   "Systems Thinking",
+   "Behavior Change",
+   "Ethnographic Research",
+   "Jobs-to-be-Done Research",
+   "Customer Journey Mapping",
+   "Service Blueprinting",
+   "Opportunity Mapping",
+   "Insight Synthesis"
+  ]
+ }
+ </script>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link rel="stylesheet" href="styles.css?v=15" />
+</head>
+<body data-page-section="{{SECTION_ID}}">
+
+ <!-- ─── HEADER (fixed, always on top) ─── -->
+ <header id="siteHeader">
+  <a href="index.html" class="logo-lockup" id="logoLink" data-route data-clean="/">
+   <img src="images/ds-logo.svg" alt="Dream Scenario" />
+   <span class="wordmark"><span class="wd">Dream</span><span class="ws">Scenario</span></span>
+  </a>
+  <nav>
+   <a href="approach.html" data-section="approach" data-accent="gold" data-route data-clean="/approach.html">Approach</a>
+   <a href="services.html" data-section="services" data-accent="pink" data-route data-clean="/services.html">Services</a>
+   <a href="studio.html" data-section="studio" data-accent="olive" data-route data-clean="/studio.html">Studio</a>
+   <a href="contact.html" data-section="contact" data-accent="teal" data-route data-clean="/contact.html">Contact</a>
+  </nav>
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+   <span class="material-symbols-outlined">menu</span>
+  </button>
+ </header>
+
+ <!-- ─── GRADIENT — fixed layer above sections, below header ─── -->
+ <div id="nav-gradient"></div>
+
+ <!-- ─── HERO — fixed behind everything, never re-rendered on navigation ─── -->
+ <div id="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+   <source src="images/Dream-Scenario-Website-Background-720.webm" type="video/webm">
+  </video>
+  <div id="hero-text" class="{{OPEN_CLASS}}">
+   <div class="hero-content">
+    <h1 class="home-headline">
+     <span class="teal">Dream</span>
+     <span class="teal2">Scenario</span>
+     <span class="wht">is a new problem solving <br>studio</span>
+    </h1>
+   </div>
+  </div>
+  <div class="hero-footer">© 2026 • Dream Scenario LLC</div>
+ </div>
+
+ <!-- ─── SCROLL BODY — slides up over hero on scroll ─── -->
+ <div id="scroll-body" class="{{OPEN_CLASS}}">
+ <div id="mobile-header-mask"></div>
+ <div id="scroll-content">
+{{CONTENT}}
+ </div><!-- /scroll-content -->
+
+ </div><!-- /scroll-body -->
+
+ <!-- ─── MOBILE NAV OVERLAY ─── -->
+ <div class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay-top">
+   <a href="index.html" id="overlayLogoLink" class="logo-lockup" data-route data-clean="/"><img src="images/ds-logo.svg" alt="Dream Scenario" /><span class="wordmark"><span class="wd">Dream</span><span class="ws">Scenario</span></span></a>
+   <button class="close-btn" id="closeBtn" aria-label="Close menu">
+    <span class="material-symbols-outlined">close</span>
+   </button>
+  </div>
+  <nav class="nav-overlay-links" id="overlayNav">
+   <a href="approach.html" data-section="approach" data-accent="gold" data-route data-clean="/approach.html">Approach</a>
+   <a href="services.html" data-section="services" data-accent="pink" data-route data-clean="/services.html">Services</a>
+   <a href="studio.html" data-section="studio" data-accent="olive" data-route data-clean="/studio.html">Studio</a>
+   <a href="contact.html" data-section="contact" data-accent="teal" data-route data-clean="/contact.html">Contact</a>
+  </nav>
+ </div>
+
+ <script src="router.js" defer></script>
+
+</body>
+</html>

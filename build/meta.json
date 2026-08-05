@@ -1,0 +1,47 @@
+[
+  {
+    "outputPath": "index.html",
+    "canonical": "https://dreamscenario.studio/",
+    "contentFile": "pages/home.html",
+    "openClass": "",
+    "section": "approach",
+    "title": "Dream Scenario — Research-Led Strategy & Design",
+    "description": "Dream Scenario is a research-led problem solving studio using human-centric strategy, design, and systems thinking. We help purpose-driven businesses and cultural organizations unite business goals with customer needs."
+  },
+  {
+    "outputPath": "approach.html",
+    "canonical": "https://dreamscenario.studio/approach.html",
+    "contentFile": "pages/home.html",
+    "openClass": "is-open",
+    "section": "approach",
+    "title": "Approach — Dream Scenario",
+    "description": "Dream Scenario is a research-led strategy and design studio using human-centric strategy, design, and systems thinking. We help purpose-driven businesses and cultural organizations unite business goals with customer needs."
+  },
+  {
+    "outputPath": "services.html",
+    "canonical": "https://dreamscenario.studio/services.html",
+    "contentFile": "pages/services.html",
+    "openClass": "is-open",
+    "section": "services",
+    "title": "Services — Strategic Design, Experience Architecture & Experience Design | Dream Scenario",
+    "description": "Human-centered, outcome-focused services: strategic design to set a purpose-led path to your targets, experience architecture to orchestrate complex systems, and experience design to make complex things intuitive and memorable."
+  },
+  {
+    "outputPath": "studio.html",
+    "canonical": "https://dreamscenario.studio/studio.html",
+    "contentFile": "pages/studio.html",
+    "openClass": "is-open",
+    "section": "studio",
+    "title": "Studio — About Dream Scenario",
+    "description": "Dream Scenario is a research-led strategy and design studio based in the New York Metro area, founded by Matthew Abate. We think like an agency and work like your team, with clients including Citi, Ford, HBO, MLB, and NBCUniversal."
+  },
+  {
+    "outputPath": "contact.html",
+    "canonical": "https://dreamscenario.studio/contact.html",
+    "contentFile": "pages/contact.html",
+    "openClass": "is-open",
+    "section": "contact",
+    "title": "Contact — Dream Scenario",
+    "description": "Get in touch with Dream Scenario to talk through your challenges and schedule time to explore how research-led strategy and design can help your organization."
+  }
+]
